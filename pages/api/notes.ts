@@ -1,12 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { supabaseServer } from '../../lib/supabaseServer';
+import { Database } from '../../types/supabase';
 
-interface Note {
-  id: number;
-  user_id: string;
-  content: string;
-}
-
+type Note = Database['public']['Tables']['notes']['Row'];
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,7 +11,7 @@ export default async function handler(
   if (req.method === 'GET') {
     const { user_id } = req.query;
     const { data, error } = await supabaseServer
-      .from<Note>('notes')
+      .from('notes')
       .select('*')
       .eq('user_id', user_id as string);
     if (error) return res.status(500).json({ error: error.message });
@@ -25,7 +21,7 @@ export default async function handler(
   if (req.method === 'POST') {
     const { user_id, content } = req.body;
     const { data, error } = await supabaseServer
-      .from<Note>('notes')
+      .from('notes')
       .insert([{ user_id, content }]);
     if (error) {
       console.log(error.message);
