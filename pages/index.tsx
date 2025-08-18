@@ -31,7 +31,7 @@ export default function Home() {
     <main className="min-h-screen flex items-center justify-center bg-white">
 
       {/* 容器添加外边距，限制最大宽度 */}
-      <div className="mx-auto w-full max-w-4xl my-40 mx-4 sm:mx-20">
+      <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20">
         <div className="flex flex-row items-center">
 
           {/* 左侧文字区域 */}
