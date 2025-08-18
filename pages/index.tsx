@@ -31,7 +31,7 @@ export default function Home() {
     <main className="min-h-screen flex items-center justify-center bg-white">
 
       {/* 容器添加外边距，限制最大宽度 */}
-      <div className="w-full mx-auto max-w-4xl m-20">
+      <div className="mx-auto w-full max-w-4xl my-40 mx-4 sm:mx-20">
         <div className="flex flex-row items-center">
 
           {/* 左侧文字区域 */}
@@ -62,7 +62,7 @@ export default function Home() {
       </div>
 
       {/* 右上角英文 */}
-      <div className="absolute top-8 right-8 text-xs text-gray-500">
+      <div className="absolute top-8 right-8 text-xs text-right text-gray-500">
         To live steadily and diligently<br />step by step
       </div>
 
