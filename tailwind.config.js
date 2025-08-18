@@ -39,9 +39,9 @@ module.exports = {
     'hover:bg-custom-blue',
     'hover:bg-custom-orange',
     'hover:bg-custom-green',
-    'hover:border-custom-red',
-    'hover:border-custom-green2',
-    'hover:border-custom-red2',
+    'hover:bg-custom-red',
+    'hover:bg-custom-green2',
+    'hover:bg-custom-red2',
   ],
   plugins: [],
 };
