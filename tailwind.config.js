@@ -4,6 +4,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './styles/**/*.css',
   ],
   theme: {
     extend: {
@@ -28,5 +29,19 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    'border-custom-blue',
+    'border-custom-orange',
+    'border-custom-green',
+    'border-custom-red',
+    'border-custom-green2',
+    'border-custom-red2',
+    'hover:bg-custom-blue',
+    'hover:bg-custom-orange',
+    'hover:bg-custom-green',
+    'hover:border-custom-red',
+    'hover:border-custom-green2',
+    'hover:border-custom-red2',
+  ],
   plugins: [],
 };
