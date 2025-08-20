@@ -32,7 +32,7 @@ export default function Home() {
 
       {/* 容器添加外边距，限制最大宽度 */}
       <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20">
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row">
 
           {/* 左侧文字区域 */}
           <div className="w-1/3 text-right">
