@@ -116,7 +116,7 @@ export default function NoteList() {
             </ul>
           ) : (
             // 如果没有内容，就渲染提示信息
-            <p>没记事</p>
+            <p>No notes</p>
           )}
         </div>
       </div>

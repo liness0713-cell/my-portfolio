@@ -19,7 +19,7 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ href }) => {
   ];
 
   return (
-    <div className="mb-40 flex items-center">
+    <div className="flex items-center">
       {colors.map((color, index) => (
         <Link 
           key={index}
