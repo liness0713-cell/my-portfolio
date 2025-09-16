@@ -1,5 +1,5 @@
-import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface Service {
   id: number;
@@ -49,12 +49,12 @@ export default function Home() {
           <div className="w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 
             {services.map((s, index) => (
-              <div
+              <Link href={s.id === 5 ? `/notes?id=3` : `/`}
                 key={s.id}
                 className={`bg-white text-black border-2 border-${colors[index]} aspect-square p-4 text-center rounded-lg hover:bg-${colors[index]} hover:text-white transition-colors duration-200`}
               >
                 {s.title}
-              </div>
+              </Link>
             ))}
 
           </div>
