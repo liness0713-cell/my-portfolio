@@ -10,7 +10,7 @@ export default function Login() {
   async function handleLogin() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) alert(error.message);
-    else router.push('/notes');
+    else router.push('/notelist');
   }
 
   async function handleSignup() {
@@ -20,12 +20,19 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>登录 / 注册</h1>
-      <input placeholder="邮箱" value={email} onChange={e => setEmail(e.target.value)} />
-      <input placeholder="密码" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      <button onClick={handleLogin}>登录</button>
-      <button onClick={handleSignup}>注册</button>
-    </div>
+    <main className="min-h-screen flex items-center justify-center bg-white">
+      {/* 容器添加外边距，限制最大宽度 */}
+      <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20 flex flex-col items-start space-y-4">
+        <h1>登录 / 注册</h1>
+        <div>
+          <input placeholder="邮箱" value={email} onChange={e => setEmail(e.target.value)} />
+          <input placeholder="密码" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        </div>
+        <div>
+          <button onClick={handleLogin}>登录</button>|
+          <button onClick={handleSignup}>注册</button>
+        </div>
+      </div>
+    </main>
   );
 }
