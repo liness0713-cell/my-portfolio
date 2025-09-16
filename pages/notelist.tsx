@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import ColorPalette from '../components/ColorPalette';
 
 interface Note {
   id: number;
@@ -98,13 +99,7 @@ export default function NoteList() {
       <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20">
 
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Note List</h1>
-        <div className="mb-40 flex items-center">
-          {colors.map((s, index) => (
-            <Link href={`/`}
-              className={`w-3 h-3 bg-white mr-1 border-2 border-${colors[index]} aspect-square rounded-lg hover:bg-${colors[index]} transition-colors duration-200`}
-            />
-          ))}
-        </div>
+        <ColorPalette href="/" />
 
         <div className="flex justify-end">
           {/* 检查 notes 数组是否有内容 */}

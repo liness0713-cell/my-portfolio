@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import DOMPurify from 'dompurify';
-import Link from 'next/link';
+import ColorPalette from '../components/ColorPalette';
 
 interface Note {
     id: number;
@@ -45,15 +45,7 @@ export default function Notes() {
 
                 <h1 className="text-3xl font-bold text-slate-900 mb-4">{note.title}</h1>
                 <p className="text-gray-400 text-xs mb-4">{new Date(note.created_at).toLocaleString()}</p>
-                <div className="mb-40 flex items-center">
-                    {colors.map((s, index) => (
-                        <Link href={`/notelist`}
-                            className={`w-3 h-3 bg-white mr-1 border-2 border-${colors[index]} aspect-square rounded-lg hover:bg-${colors[index]} transition-colors duration-200`}
-                        />
-                    ))}
-                </div>
-
-                <div className="decoration absolute top-10 left-10"></div>
+                <ColorPalette href="/notelist" />
 
                 <div className="flex justify-end">
                     <p className="max-w-6xl w-full space-y-10" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note.content ? note.content : "") }} />

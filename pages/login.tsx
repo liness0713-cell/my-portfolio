@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+import ColorPalette from '../components/ColorPalette';
 
 export default function Login() {
   const colors = [
@@ -34,13 +34,7 @@ export default function Login() {
       {/* 容器添加外边距，限制最大宽度 */}
       <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20 flex flex-col items-start space-y-4">
         <h1>登录 / 注册</h1>
-        <div className="flex items-center">
-          {colors.map((s, index) => (
-            <Link href={`/`}
-              className={`w-3 h-3 bg-white mr-1 border-2 border-${colors[index]} aspect-square rounded-lg hover:bg-${colors[index]} transition-colors duration-200`}
-            />
-          ))}
-        </div>
+        <ColorPalette href="/" />
 
         <div>
           <input placeholder="邮箱" value={email} onChange={e => setEmail(e.target.value)} />
