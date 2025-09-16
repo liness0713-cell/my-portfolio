@@ -101,7 +101,7 @@ export default function NoteList() {
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Note List</h1>
         <ColorPalette href="/" />
 
-        <div className="flex justify-end">
+        <div className="flex justify-end mt-40">
           {/* 检查 notes 数组是否有内容 */}
           {notes && notes.length > 0 ? (
             // 如果有内容，就渲染列表
