@@ -41,16 +41,16 @@ export default function Notes() {
     return (
         <main className="min-h-screen flex items-center justify-center bg-white">
             {/* 容器添加外边距，限制最大宽度 */}
-            <div className="w-full max-w-8xl my-40 mx-4 sm:mx-20 flex flex-col sm:flex-row sm:justify-between sm:items-start">
+            <div className="w-full max-w-[100rem] mx-4 my-10 sm:mx-20 sm:my-40 flex flex-col sm:flex-row sm:justify-between sm:items-start">
 
-                <div className="sm:sticky sm:top-40 sm:z-10 sm:bg-white sm:max-w-1xl sm:mr-10">
+                <div className="sm:sticky sm:top-40 sm:mr-10">
                     <h1 className="text-3xl font-bold text-slate-900 mb-4">{note.title}</h1>
                     <p className="text-gray-400 text-xs mb-4">{new Date(note.created_at).toLocaleString()}</p>
                     <ColorPalette href="/notelist" />
                 </div>
 
 
-                <p className="max-w-6xl w-full space-y-10 mt-20 sm:mt-60" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note.content ? note.content : "") }} />
+                <p className="max-w-6xl w-full space-y-10 mt-10 sm:mt-60" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note.content ? note.content : "") }} />
             </div>
         </main>
     );

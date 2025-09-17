@@ -32,17 +32,17 @@ export default function Login() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-white">
       {/* 容器添加外边距，限制最大宽度 */}
-      <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20 flex flex-col items-start space-y-4">
+      <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20 flex flex-col items-start space-y-2">
         <h1>登录 / 注册</h1>
         <ColorPalette href="/" />
 
         <div>
-          <input placeholder="邮箱" value={email} onChange={e => setEmail(e.target.value)} />
-          <input placeholder="密码" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+          <input className="mr-4 my-4 px-2 py-1 border border-gray-300 rounded-lg" placeholder="邮箱" value={email} onChange={e => setEmail(e.target.value)} />
+          <input className="mr-4 my-4 px-2 py-1 border border-gray-300 rounded-lg" placeholder="密码" type="password" value={password} onChange={e => setPassword(e.target.value)} />
         </div>
         <div>
-          <button onClick={handleLogin}>登录</button>|
-          <button onClick={handleSignup}>注册</button>
+          <button className="mr-4" onClick={handleLogin}>登录</button>
+          <button className="mr-4" onClick={handleSignup}>注册</button>
         </div>
       </div>
     </main>
