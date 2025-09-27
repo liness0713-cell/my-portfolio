@@ -3,6 +3,7 @@ import { supabase } from '../lib/supabaseClient';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ColorPalette from '../components/ColorPalette';
+import Head from 'next/head';
 
 interface Note {
   id: number;
@@ -93,42 +94,50 @@ export default function NoteList() {
   }
 
   return (
+    <>
+      <Head>
+        {/* 在这里设置标题栏的标题 */}
+        <title>Note List　ー　千葉２狗 🐶</title>
 
-    <main className="min-h-screen flex items-center justify-center bg-white">
-      {/* 容器添加外边距，限制最大宽度 */}
-      <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20">
+        {/* 你也可以在这里添加其他 SEO 相关的 meta 标签 */}
+        <meta name="description" content="老登💡的网页" />
+      </Head>
 
-        <h1 className="text-3xl font-bold text-slate-900 mb-4">Note List</h1>
-        <ColorPalette href="/" />
+      <main className="min-h-screen flex items-center justify-center bg-white">
+        {/* 容器添加外边距，限制最大宽度 */}
+        <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20">
 
-        <div className="flex justify-end mt-40">
-          {/* 检查 notes 数组是否有内容 */}
-          {notes && notes.length > 0 ? (
-            // 如果有内容，就渲染列表
-            <ul>
-              {notes.map(note => (
-                <li key={note.id} className='mb-6'>
-                  <Link href={`/notes?id=${note.id}`}>
-                    {note.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            // 如果没有内容，就渲染提示信息
-            <p>No notes</p>
-          )}
+          <h1 className="text-3xl font-bold text-slate-900 mb-4">Note List</h1>
+          <ColorPalette href="/" />
+
+          <div className="flex justify-end mt-40">
+            {/* 检查 notes 数组是否有内容 */}
+            {notes && notes.length > 0 ? (
+              // 如果有内容，就渲染列表
+              <ul>
+                {notes.map(note => (
+                  <li key={note.id} className='mb-6'>
+                    <Link href={`/notes?id=${note.id}`}>
+                      {note.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              // 如果没有内容，就渲染提示信息
+              <p>No notes</p>
+            )}
+          </div>
         </div>
-      </div>
 
-      {show && (
-        <div className="w-full max-w-4xl">
-          <input value={content} onChange={e => setContent(e.target.value)} placeholder="写点什么..." />
-          <button onClick={addNote}>添加</button>
-        </div>
-      )
-      }
-    </main>
-
+        {show && (
+          <div className="w-full max-w-4xl">
+            <input value={content} onChange={e => setContent(e.target.value)} placeholder="写点什么..." />
+            <button onClick={addNote}>添加</button>
+          </div>
+        )
+        }
+      </main>
+    </>
   );
 }

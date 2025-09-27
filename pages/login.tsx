@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useRouter } from 'next/router';
 import ColorPalette from '../components/ColorPalette';
+import Head from 'next/head';
 
 export default function Login() {
   const colors = [
@@ -30,21 +31,32 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-white">
-      {/* 容器添加外边距，限制最大宽度 */}
-      <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20 flex flex-col items-start space-y-2">
-        <h1>登录 / 注册</h1>
-        <ColorPalette href="/" />
+    <>
+      <Head>
+        {/* 在这里设置标题栏的标题 */}
+        <title>ようこそ🤗　ー　千葉２狗 🐶</title>
 
-        <div>
-          <input className="mr-4 my-4 px-2 py-1 border border-gray-300 rounded-lg" placeholder="邮箱" value={email} onChange={e => setEmail(e.target.value)} />
-          <input className="mr-4 my-4 px-2 py-1 border border-gray-300 rounded-lg" placeholder="密码" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        {/* 你也可以在这里添加其他 SEO 相关的 meta 标签 */}
+        <meta name="description" content="老登💡的网页" />
+      </Head>
+
+      <main className="min-h-screen flex items-center justify-center bg-white">
+        {/* 容器添加外边距，限制最大宽度 */}
+        <div className="w-full max-w-4xl my-40 mx-4 sm:mx-20 flex flex-col items-start space-y-2">
+          <h1>ようこそ🤗</h1>
+          <ColorPalette href="/" />
+
+          <div>
+            <input className="mr-4 my-4 px-2 py-1 border border-gray-300 rounded-lg" placeholder="邮箱" value={email} onChange={e => setEmail(e.target.value)} />
+            <input className="mr-4 my-4 px-2 py-1 border border-gray-300 rounded-lg" placeholder="密码" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+          </div>
+          <div>
+            <button className="mr-4" onClick={handleLogin}>登录</button>
+            <button className="mr-4" onClick={handleSignup}>注册</button>
+          </div>
         </div>
-        <div>
-          <button className="mr-4" onClick={handleLogin}>登录</button>
-          <button className="mr-4" onClick={handleSignup}>注册</button>
-        </div>
-      </div>
-    </main>
+      </main>
+
+    </>
   );
 }
