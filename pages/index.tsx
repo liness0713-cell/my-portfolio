@@ -18,6 +18,12 @@ export default function Home() {
     'custom-red',
     'custom-green2',
     'custom-red2',
+    'custom-blue',
+    'custom-orange',
+    'custom-green',
+    'custom-red',
+    'custom-green2',
+    'custom-red2'
   ];
 
   const [services, setServices] = useState<Service[]>([]);
