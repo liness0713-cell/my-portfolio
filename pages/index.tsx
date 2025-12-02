@@ -68,6 +68,8 @@ export default function Home() {
                 <Link href={s.image_url}
                   key={s.id}
                   className={`bg-white text-black border-2 border-${colors[index]} aspect-square p-4 text-center rounded-lg hover:bg-${colors[index]} hover:text-white transition-colors duration-200`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   {s.title}
                 </Link>
