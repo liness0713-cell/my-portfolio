@@ -31,8 +31,8 @@ export default async function handler(
   //   res.status(200).json(data);
   // }
 
-
-  if (req.method === 'GET' && (req.query.id || req.query.user_id)) {
+  //if (req.method === 'GET' && (req.query.id || req.query.user_id)) {
+  if (req.method === 'GET') {
     const { id, user_id } = req.query;
     // Initialize the query
     let query: PostgrestFilterBuilder<any, any, Note[], "notes", unknown> = supabaseServer.from('notes').select('*');
