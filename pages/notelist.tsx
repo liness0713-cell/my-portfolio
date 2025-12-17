@@ -38,30 +38,36 @@ export default function NoteList() {
 
 
   // 第一个 useEffect：仅在组件挂载时运行一次，获取用户 ID
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      if (!data.user) {
-        router.push('/login');
-      } else {
-        console.log('data.user.id' + data.user.id);
-        //因为 setUserId(data.user.id) 这个操作是异步的，React 会等到组件重新渲染时才会更新 userId 的值。
-        setUserId(data.user.id);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   supabase.auth.getUser().then(({ data }) => {
+  //     if (!data.user) {
+  //       router.push('/login');
+  //     } else {
+  //       console.log('data.user.id' + data.user.id);
+  //       //因为 setUserId(data.user.id) 这个操作是异步的，React 会等到组件重新渲染时才会更新 userId 的值。
+  //       setUserId(data.user.id);
+  //     }
+  //   });
+  // }, []);
 
 
   // 第二个 useEffect：依赖于 userId，当 userId 变化时（即获取到新值时）才运行
-  useEffect(() => {
-    // 只有当 userId 有值时才执行 fetchNotes
-    if (userId) {
-      // 这里的 userId 已经是最新值
-      fetchNotes();
-    }
-  }, [userId]); // 当 userId 改变时，这个 useEffect 就会被触发
+  // useEffect(() => {
+  //   // 只有当 userId 有值时才执行 fetchNotes
+  //   if (userId) {
+  //     // 这里的 userId 已经是最新值
+  //     fetchNotes();
+  //   }
+  // }, [userId]); // 当 userId 改变时，这个 useEffect 就会被触发
 
+//20251217 不获取登录了，直接拉全部文章
+  useEffect(() => {
+    fetchNotes();
+  }, []);
+  
   function fetchNotes() {
-    fetch(`/api/notes?user_id=${userId}`)
+    //fetch(`/api/notes?user_id=${userId}`)
+    fetch(`/api/notes`)
       .then(res => res.json())
       .then(setNotes)
       .catch(error => console.error('Error fetching notes:', error));
